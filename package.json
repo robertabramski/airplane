@@ -1,0 +1,45 @@
+{
+  "name": "airplane",
+  "version": "1.0.0",
+  "description": "Manage offline copies of your favourite websites for when you are on an airplane!",
+  "bin": {
+    "airplane": "./bin/airplane.js"
+  },
+  "homepage": "https://github.com/jviotti/airplane",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jviotti/airplane.git"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "prepublish": "gulp build",
+    "test": "gulp test"
+  },
+  "keywords": [
+    "airplane",
+    "website",
+    "offline",
+    "copies"
+  ],
+  "author": "Juan Cruz Viotti <juanchiviotti@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.9.0",
+    "chalk": "^1.0.0",
+    "coffee-script": "^1.9.1",
+    "fs-plus": "^2.5.0",
+    "lodash": "^3.5.0",
+    "mkdirp": "^0.5.0",
+    "user-home": "^1.1.1"
+  },
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "gulp": "^3.8.11",
+    "gulp-coffeelint": "^0.4.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-util": "^3.0.4",
+    "mocha": "^2.2.1",
+    "sinon": "^1.13.0",
+    "sinon-chai": "^2.7.0"
+  }
+}

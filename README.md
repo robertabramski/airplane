@@ -5,6 +5,8 @@ Airplane
 [![dependencies](https://david-dm.org/jviotti/airplane.png)](https://david-dm.org/jviotti/airplane.png)
 [![Build Status](https://travis-ci.org/jviotti/airplane.svg?branch=master)](https://travis-ci.org/jviotti/airplane)
 
+![Airplane picture](https://raw.githubusercontent.com/jviotti/airplane/master/images/airplane.jpg)
+
 Manage offline copies of your favourite websites for when you are on an airplane!
 
 I used to manually keep track and update offline copies of software documentation for when I'm working on an airplane, but the method simply didn't scale for me once I was keeping track of quite a lot of websites.
@@ -150,3 +152,5 @@ License
 -------
 
 The project is licensed under the MIT license.
+
+Front illustration taken from [freedigitalphotos.net](http://www.freedigitalphotos.net).

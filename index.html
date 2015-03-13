@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Airplane by jviotti</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Airplane</h1>
+        <p>Manage offline copies of your favourite websites for when you are on an airplane!</p>
+
+        <p class="view"><a href="https://github.com/jviotti/airplane">View the Project on GitHub <small>jviotti/airplane</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jviotti/airplane/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jviotti/airplane/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jviotti/airplane">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="airplane" class="anchor" href="#airplane" aria-hidden="true"><span class="octicon octicon-link"></span></a>Airplane</h2>
+
+<p><a href="http://badge.fury.io/js/airplane"><img src="https://badge.fury.io/js/airplane.svg" alt="npm version"></a>
+<a href="https://david-dm.org/jviotti/airplane.png"><img src="https://david-dm.org/jviotti/airplane.png" alt="dependencies"></a>
+<a href="https://travis-ci.org/jviotti/airplane"><img src="https://travis-ci.org/jviotti/airplane.svg?branch=master" alt="Build Status"></a></p>
+
+<p><img src="https://raw.githubusercontent.com/jviotti/airplane/master/images/airplane.jpg" alt="Airplane picture"></p>
+
+<p>Manage offline copies of your favourite websites for when you are on an airplane!</p>
+
+<p>I used to manually keep track and update offline copies of software documentation for when I'm working on an airplane, but the method simply didn't scale for me once I was keeping track of quite a lot of websites.</p>
+
+<p>Motivated by that, I created Airplane, an easy way to keep track of my offline sites, independently of how those offline copies were made.</p>
+
+<p>I now hit <code>airplane</code> on the terminal the night after the trip, and I'm sure I'll have up to date offline copies of all the websites I need on the place.</p>
+
+<h2>
+<a id="quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h2>
+
+<p>Create a basic <code>~/.airplanerc.json</code>:</p>
+
+<div class="highlight highlight-json"><pre>{
+  <span class="pl-s1"><span class="pl-pds">"</span>websites<span class="pl-pds">"</span></span>: {
+    <span class="pl-s1"><span class="pl-pds">"</span>lodash<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>https://lodash.com<span class="pl-pds">"</span></span>,   
+    <span class="pl-s1"><span class="pl-pds">"</span>sinonjs<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://sinonjs.org<span class="pl-pds">"</span></span>
+  },
+  <span class="pl-s1"><span class="pl-pds">"</span>options<span class="pl-pds">"</span></span>: {
+    <span class="pl-s1"><span class="pl-pds">"</span>destination<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>/opt/www/airplane<span class="pl-pds">"</span></span>
+  },
+  <span class="pl-s1"><span class="pl-pds">"</span>commands<span class="pl-pds">"</span></span>: {
+    <span class="pl-s1"><span class="pl-pds">"</span>clone<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>mkdir -p &lt;%- destination %&gt; &amp;&amp; cd &lt;%- destination %&gt; &amp;&amp; httrack &lt;%- url %&gt;<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>update<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>cd &lt;%- destination %&gt; &amp;&amp; httrack --update &lt;%- url %&gt;<span class="pl-pds">"</span></span>
+  }
+}</pre></div>
+
+<p>In this case, I'm keeping track of <a href="https://lodash.com">lodash</a> and <a href="http://sinonjs.org">sinonjs</a>.</p>
+
+<p>I set my <code>destination</code> option to <code>/opt/www/airplane</code>. I have a web server configured to serve that directory locally.</p>
+
+<p>I like to use <a href="http://www.httrack.com">httrack</a> to clone my websites, so I configured my <code>clone</code> and <code>update</code> commands accordingly. You can use any tool you like.</p>
+
+<p>Typing <code>airplane</code> in my terminal brings the fun:</p>
+
+<p><img src="https://raw.githubusercontent.com/jviotti/airplane/master/images/screenshot.png" alt="Airplane in action"></p>
+
+<p>I can now open <code>http://localhost/lodash</code> or <code>http://localhost/sinonjs</code> to access the websites offline.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Install <code>airplane</code> by running:</p>
+
+<div class="highlight highlight-sh"><pre>$ npm install -g airplane</pre></div>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<h3>
+<a id="airplanercjson" class="anchor" href="#airplanercjson" aria-hidden="true"><span class="octicon octicon-link"></span></a>~/.airplanerc.json</h3>
+
+<p>The configuration file containing the sites you want to manage, and a few options.</p>
+
+<h4>
+<a id="websites" class="anchor" href="#websites" aria-hidden="true"><span class="octicon octicon-link"></span></a>websites</h4>
+
+<p>An object containins websites to clone. Keys are the names, and values are the urls:</p>
+
+<div class="highlight highlight-json"><pre>...
+<span class="pl-s1"><span class="pl-pds">"</span>websites<span class="pl-pds">"</span></span>: {
+  <span class="pl-s1"><span class="pl-pds">"</span>lodash<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>https://lodash.com<span class="pl-pds">"</span></span>,   
+  <span class="pl-s1"><span class="pl-pds">"</span>sinonjs<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://sinonjs.org<span class="pl-pds">"</span></span>
+},
+...</pre></div>
+
+<h4>
+<a id="optionsdestination" class="anchor" href="#optionsdestination" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.destination</h4>
+
+<p>The destination directory in which to clone the specified websites.</p>
+
+<p>Is recommended that you setup a web server to locally serve that directory.</p>
+
+<div class="highlight highlight-json"><pre>...
+<span class="pl-s1"><span class="pl-pds">"</span>options<span class="pl-pds">"</span></span>: {
+  <span class="pl-s1"><span class="pl-pds">"</span>destination<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>/opt/www/airplane<span class="pl-pds">"</span></span>
+},
+...</pre></div>
+
+<h4>
+<a id="commandsclone" class="anchor" href="#commandsclone" aria-hidden="true"><span class="octicon octicon-link"></span></a>commands.clone</h4>
+
+<p>The command to use to clone a website. It uses <a href="http://underscorejs.org/#template">UnderscoreJS templates syntax</a> to interpolate:</p>
+
+<ul>
+<li>
+<code>destination</code>: The final destination of the website. This is the concatenation between <code>options.destination</code> and the website name.</li>
+<li>
+<code>url</code>: The url of the website.</li>
+<li>
+<code>name</code>: The selected name for the website.</li>
+</ul>
+
+<p>I like to use <a href="http://www.httrack.com">httrack</a>, but you can use any other software to clone the website.</p>
+
+<div class="highlight highlight-json"><pre>...
+<span class="pl-s1"><span class="pl-pds">"</span>commands<span class="pl-pds">"</span></span>: {
+  <span class="pl-s1"><span class="pl-pds">"</span>clone<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>mkdir -p &lt;%- destination %&gt; &amp;&amp; cd &lt;%- destination %&gt; &amp;&amp; httrack &lt;%- url %&gt;<span class="pl-pds">"</span></span>,
+}
+...</pre></div>
+
+<h4>
+<a id="commandsupdate" class="anchor" href="#commandsupdate" aria-hidden="true"><span class="octicon octicon-link"></span></a>commands.update</h4>
+
+<p>Same as <code>commands.clone</code>, but the update command is triggered when the website was already cloned in the past.</p>
+
+<div class="highlight highlight-json"><pre>...
+<span class="pl-s1"><span class="pl-pds">"</span>commands<span class="pl-pds">"</span></span>: {
+  <span class="pl-s1"><span class="pl-pds">"</span>update<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>cd &lt;%- destination %&gt; &amp;&amp; httrack --update &lt;%- url %&gt;<span class="pl-pds">"</span></span>  
+}
+...</pre></div>
+
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<p>Run the test suite by doing:</p>
+
+<div class="highlight highlight-sh"><pre>$ gulp <span class="pl-s3">test</span></pre></div>
+
+<h2>
+<a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribute</h2>
+
+<ul>
+<li>Issue Tracker: <a href="https://github.com/jviotti/airplane/issues">github.com/jviotti/airplane/issues</a>
+</li>
+<li>Source Code: <a href="https://github.com/jviotti/airplane">github.com/jviotti/airplane</a>
+</li>
+</ul>
+
+<p>Before submitting a PR, please make sure that you include tests, and that <a href="http://www.coffeelint.org/">coffeelint</a> runs without any warning:</p>
+
+<div class="highlight highlight-sh"><pre>$ gulp lint</pre></div>
+
+<h2>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h2>
+
+<p>If you're having any problem, please <a href="https://github.com/jviotti/airplane/issues/new">raise an issue</a> on GitHub.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The project is licensed under the MIT license.</p>
+
+<p>Front illustration taken from <a href="http://www.freedigitalphotos.net">freedigitalphotos.net</a>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jviotti">jviotti</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

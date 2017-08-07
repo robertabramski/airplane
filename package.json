@@ -1,6 +1,6 @@
 {
   "name": "airplane",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage offline copies of your favourite websites for when you are on an airplane!",
   "bin": {
     "airplane": "./bin/airplane.js"

@@ -5,10 +5,10 @@
   "bin": {
     "airplane": "./bin/airplane.js"
   },
-  "homepage": "https://github.com/jviotti/airplane",
+  "homepage": "https://github.com/robertabramski/airplane",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jviotti/airplane.git"
+    "url": "git@github.com:robertabramski/airplane.git"
   },
   "preferGlobal": true,
   "scripts": {
@@ -26,7 +26,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "chalk": "^1.0.0",
-    "coffee-script": "^1.9.1",
+    "coffeescript": "^1.9.1",
     "fs-plus": "^2.5.0",
     "lodash": "^3.5.0",
     "mkdirp": "^0.5.0",
